@@ -1,0 +1,24 @@
+
+    {% extends "encyclopedia/layout.html" %}
+    {% load static %}
+
+
+    {% block title %}
+    Welcome to the Encyclopedia
+    {% endblock %}
+
+    {% block body %}
+    <div class="centered-content">
+       <h1>Welcome to the Encyclopedia</h1>
+
+       <img src="{% static 'encyclopedia/encyclopedia-image.png' %}" alt="Encyclopedia Image" class="encyclopedia-img">
+
+       <p>Select an entry to learn more about it:</p>
+
+       <ul class="entries-list">
+           {% for entry in entries %}
+                <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
+           {% endfor %}
+       </ul>
+    </div>
+    {% endblock %}
